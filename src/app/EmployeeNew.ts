@@ -1,8 +1,8 @@
 
-export class Employee {
+export class EmployeeNew {
 
   id : number;
-  employeeName : string:
+  employeeName : string;
   mobileNo : string;
   departmentNew : DepartmentNew;
 

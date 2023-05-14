@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1 style="text-align: center">Employees</h1><br>
+  </div>
+
+
+  <div class="panel-body">
+    <table  class="table table-hover table-sm">
+
+      <tr>
+        <th>Student Name</th>
+        <th>Student Email</th>
+        <th>Student Branch</th>
+        <th>Action</th>
+
+      </tr>
+
+      <tbody>
+      <tr *ngFor=" let employee of employeeList ">
+        <td>{{employee.id}}</td>
+        <td>{{employee.employeeName}}</td>
+        <td>{{employee.mobileNo}}</td>
+
+      </tr>
+      </tbody><br>
+    </table>
+  </div>
+</div>
+
