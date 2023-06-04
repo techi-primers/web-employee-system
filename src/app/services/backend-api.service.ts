@@ -12,41 +12,18 @@ export class BackendApiService {
 
   constructor(private http: HttpClient) { }
 
-  createDb() {
-    const heroes = [
-        {
-          id: 12,
-          employeeName: 'Dr. Nice',
-          mobileNo: '9888889888',
-          departmentNew: {
-            departmentId: 13,
-            departmentName: 'Bombasto'
-          }
-        },
-      {
-        id: 13,
-        employeeName: 'Dr. Vick',
-        mobileNo: '78738383',
-        departmentNew: {
-          departmentId: 14,
-          departmentName: 'Celeritas'
-        }
-      }
-      ];
 
-
-
-
-
-
-
-    return heroes;
-  }
 
   getAllEmployee() : Observable<EmployeeNew[]>{
 
     return this.http.get(HttpService.SERVICE_PATH + '/employeeNew/getEmployeeDetails', {headers: null})
       .pipe(map(response => response as EmployeeNew[]));
+  }
+
+  getEmployee(id : number) : Observable<EmployeeNew>{
+
+    return this.http.get(HttpService.SERVICE_PATH + '/employeeNew/getEmployeeNewDetailsById/'+id, {headers: null})
+      .pipe(map(response => response as EmployeeNew));
   }
 
   /*getAllEmployeeMock() : any{
