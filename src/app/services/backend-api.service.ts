@@ -26,6 +26,15 @@ export class BackendApiService {
       .pipe(map(response => response as EmployeeNew));
   }
 
+  updateEmployee(employee : EmployeeNew) : Observable<any> {
+    return this.http.put(HttpService.SERVICE_PATH + '/employeeNew/update-employee', employee);
+  }
+
+  createEmployee(employee: EmployeeNew): Observable<any> {
+    return this.http.post(HttpService.SERVICE_PATH + '/employeeNew/save-employee', employee);
+  }
+
+
   /*getAllEmployeeMock() : any{
 
     /!*return this.http.get(HttpS  ervice.SERVICE_PATH + '/employeeNew/getEmployeeDetails', {headers: null})

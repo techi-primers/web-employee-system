@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {BackendApiService} from '../services/backend-api.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-save-employee',
@@ -9,20 +11,27 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class SaveEmployeeComponent implements OnInit {
 
   angForm: FormGroup;
-  constructor(private fb : FormBuilder) {
+  constructor(private fb : FormBuilder, private backendApiService: BackendApiService, private router: Router) {
     this.createForm();
   }
 
   createForm() {
-    this.angForm = this.fb.group({
-      name:['',Validators.required],
-      email:[],
-      mobileNo:[],
-      password:[]
-    })
+
   }
 
   ngOnInit() {
+    this.angForm = this.fb.group({
+      employeeName:['',Validators.required],
+      mobileNo:[''],
+      departmentName:['']
+    })
+  }
+
+  onSubmit() {
+    this.backendApiService.createEmployee(this.angForm.value)
+      .subscribe( data => {
+        this.router.navigate(['get-employee']);
+      });
   }
 
 }

@@ -1,31 +1,31 @@
 <div class="container mt-5">
-<form [formGroup]="angForm">
+<form [formGroup]="angForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="exampleInputEmail1">User Name</label>
-    <input type="text" class="form-control" id="username" aria-describedby="name" placeholder="Enter name" formControlName="name">
+    <input type="text" class="form-control" id="employeeName" aria-describedby="name" placeholder="Enter name" formControlName="employeeName">
 
   </div>
-  <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
-    <div *ngIf="angForm.controls['name'].errors.required"> Name is Reqired...</div>
+  <div *ngIf="angForm.controls['employeeName'].invalid && (angForm.controls['employeeName'].dirty || angForm.controls['employeeName'].touched)" class="alert alert-danger">
+    <div *ngIf="angForm.controls['employeeName'].errors.required"> Name is Reqired...</div>
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email </label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <label for="exampleInputEmail1">Department Name </label>
+    <input type="text" class="form-control" id="departmentName" aria-describedby="emailHelp" placeholder="Enter Department Name" formControlName="departmentName">
+
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Mobile No </label>
-      <input type="email" class="form-control" id="mobile" aria-describedby="emailHelp" placeholder="Enter Mobile" formControlName="mobileNo">
+      <input type="text" class="form-control" id="mobileNo" aria-describedby="emailHelp" placeholder="Enter Mobile" formControlName="mobileNo">
       <small id="mobiletext" class="form-text text-muted">We'll never share your mobile with anyone else.</small>
   </div>
-  <div class="form-group">
+  <!--<div class="form-group">
     <label for="exampleInputPassword1">Password</label>
     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="password">
-  </div>
-  <div class="form-group form-check">
+  </div>-->
+  <!--<div class="form-group form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
+  </div>-->
   <button type="submit" class="btn btn-primary" [disabled]="angForm.pristine || angForm.invalid">Submit</button>
 </form>
   <p>Form Value: {{angForm.value | json}}</p>
